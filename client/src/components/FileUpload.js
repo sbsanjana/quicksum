@@ -10,7 +10,13 @@ export default function FileUpload(props) {
         }
         const file = e.target.files[0];
         const { name } = file;
+        const formData = new FormData();
+        formData.append('inputFile', file);
         console.log(file);
+        fetch('http://127.0.0.1:5000/upload', {
+            method: 'POST',
+            body: formData,
+        });
     }
   return (
   
